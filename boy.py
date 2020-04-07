@@ -21,7 +21,7 @@ def main():
     driver.set_window_size(x, y)
     time.sleep(random.randint(1, 2))
     aemail = driver.find_element_by_name("email")
-    for i in "email":
+    for i in "email": # <-- just put your amazon email here
         aemail.send_keys(i)
         time.sleep(time1)
 
@@ -31,7 +31,7 @@ def main():
     time.sleep(random.randint(1, 2))
 
     apassword = driver.find_element_by_name("password")
-    for i in "password":
+    for i in "password": # <-- just put your amazon password here
         apassword.send_keys(i)
         time.sleep(time2)
     time.sleep(random.randint(1, 3))
