@@ -61,7 +61,7 @@ def main():
 
     while not driver.find_element_by_xpath("//*[@id='shipoption-select']/div/div/div/div/div[2]/div[3]/div/span/span/span/input").click():
         driver.refresh()
-        time.sleep(random.random(1, 3))
+        time.sleep(random.randint(1, 3))
         if not driver.find_element_by_xpath("//*[@id='shipoption-select']/div/div/div/div/div[2]/div[3]/div/span/span/span/input").click():
             driver.close()
             main()
