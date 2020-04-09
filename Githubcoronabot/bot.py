@@ -24,8 +24,8 @@ def main():
             print('\n'*5)
             x = random.randint(420, 1980)
             y = random.randint(420, 1980)
-            time1 = random.uniform(0.18, 0.421)
-            time2 = random.uniform(0.12, 0.321)
+            time1 = random.uniform(0.18, 0.361)
+            time2 = random.uniform(0.12, 0.316)
             options = Options()
             ua = UserAgent()
             userAgent = ua.random
