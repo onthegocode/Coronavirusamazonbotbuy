@@ -2,15 +2,22 @@ import random
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from fake_useragent import UserAgent
+import os
 import time
 
 
+def clear(): return os.system('cls')
+
+
 def main():
+
     while True:
-        okay = input('  Going to ask you to input your amazon email and amazon password, nothing will be saved and its just used to login to  your amazon account. If this is okay type y if no type n and the program will close:  ').upper()
+        okay = input('\n  The script is going to ask you to input your amazon email and amazon password,\n  nothing is saved and its just used to login to your amazon account.\n  It will never be seen by anyone but yourself \n\n  If you want to continue enter y if not enter n and the program will close:  ').upper()
         if okay == 'Y':
-            email = input('Type your amazon email: ')
-            password = input('Type your amazon password: ')
+            clear()
+            email = input('\n  Type your amazon email: ')
+            clear()
+            password = input('\n  Type your amazon password: ')
             x = random.randint(420, 1980)
             y = random.randint(420, 1980)
             time1 = random.uniform(0.18, 0.421)
