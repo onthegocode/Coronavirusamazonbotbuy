@@ -7,7 +7,7 @@ import time
 
 def main():
     while True:
-        okay = input('Going to ask you to input your amazon email and amazon password, nothing will be saved and its just used to login to  your amazon account. If this is okay type y if no type n and the program will close').upper()
+        okay = input('  Going to ask you to input your amazon email and amazon password, nothing will be saved and its just used to login to  your amazon account. If this is okay type y if no type n and the program will close:  ').upper()
         if okay == 'Y':
             email = input('Type your amazon email: ')
             password = input('Type your amazon password: ')
@@ -67,7 +67,7 @@ def main():
 
             while not driver.find_element_by_xpath("//*[@id='shipoption-select']/div/div/div/div/div[2]/div[3]/div/span/span/span/input").click():
                 driver.refresh()
-                time.sleep(random.randint(20,30))
+                time.sleep(random.randint(20, 30))
             if not driver.find_element_by_xpath("//*[@id='shipoption-select']/div/div/div/div/div[2]/div[3]/div/span/span/span/input").click():
                 driver.close()
                 main()
