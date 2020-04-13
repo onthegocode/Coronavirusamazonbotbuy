@@ -27,6 +27,7 @@ def main():
             time1 = random.uniform(0.18, 0.361)
             time2 = random.uniform(0.12, 0.316)
             options = Options()
+            options.add_argument('--no-sandbox')
             ua = UserAgent()
             userAgent = ua.random
             print(userAgent)
