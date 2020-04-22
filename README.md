@@ -20,3 +20,9 @@
 
 
 ### When all the steps above are complete all you have to do is go to cmd (might have to run it as admin just right click it and click run as admin) go to File Explorer (You can click file locator go to the file manually and then on the search bar type cmd and then enter and it should bring up cmd) and type python bot.py then enter and thats it :D hope you enjoy!
+
+
+#### New Features
+##### Added some new features one of them being the ability to save your email and password to your computer using a json file. This will allow the program to be able to run right away instead of it having to constantly ask you for your email and password. Also if you need to change your password just run the change.py script and it will ask you again for your email and password and reset it. Another thing that was added was the Fresh market option where now you can either pick fresh market or whole foods market which ever one you want! :D
+
+### If their are any errors like a recaptcha or the screen closes or just stays at the amazon homepage, try and delete your cookies or to be safe all of your history, and just re-run the program. Sometimes the recaptcha on amazon will catch the bot even if you delete your history and everything and it can be due to screen size that the bot will change too. All you need to do is just re-run it. I am currently working on getting paste the recaptcha and figuring out what triggers it but probably won't figure it out till a while, but for now just delete your history and re-run the program until it works. If anyone can help with this issues I'll be more than happy to get it still learning about recaptchas and bots. Hopefully people get some good use out of this :D. Thank you!
