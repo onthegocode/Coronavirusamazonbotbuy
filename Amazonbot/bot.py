@@ -10,6 +10,22 @@ import json
 def clear(): return os.system('cls')
 
 
+def countdown(seconds):
+    clear()
+    for i in range(seconds):
+
+        if (seconds - i) == 1:
+            clear()
+            print('Refresh Timer: '+str(seconds - i) + " second")
+            time.sleep(1)
+            clear()
+            print('Refresh!')
+        else:
+            print('Refresh Timer: '+str(seconds - i) + " seconds")
+            time.sleep(1)
+            clear()
+
+
 def login():
     global email
     global password
@@ -53,15 +69,15 @@ def wf():
     time1 = random.uniform(0.14, 0.261)
     time2 = random.uniform(0.12, 0.216)
     options = Options()
+    options.add_argument('--no-sandbox')
     ua = UserAgent()
     userAgent = ua.random
     print(userAgent)
     options.add_argument(f'user-agent={userAgent}')
-    options.add_argument('--no-sandbox')
 
     driver = webdriver.Chrome(chrome_options=options,
                               executable_path='chromedriver.exe')
-    driver.delete_all_cookies()  # Deletes cookies
+
     driver.get("https://www.amazon.com/ap/signin?_encoding=UTF8&ignoreAuthState=1&openid.assoc_handle=usflex&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2F%3Fref_%3Dnav_custrec_signin&switch_account=")
 
     driver.set_window_size(x, y)
@@ -112,17 +128,17 @@ def wf():
     driver.find_element_by_xpath(
         "//*[@id='20200417']/div/div/ul/li/span/span/div/div[2]/span/span/button")
     driver.implicitly_wait(1000)
-    while not driver.find_element_by_xpath("//*[@id='shipoption-select']/div/div/div/div/div[2]/div[3]/div/span/span/span/input").click():
+    while driver.find_element_by_xpath("//*[@id='slot-container-UNATTENDED']/div"):
         driver.refresh()
-        time.sleep(random.randint(20, 30))
+        countdown(random.randint(20, 30))
     time.sleep(5)
-    if not driver.find_element_by_xpath("//*[@id='shipoption-select']/div/div/div/div/div[2]/div[3]/div/span/span/span/input").click():
+    if not driver.find_element_by_xpath("//*[@id='shippingOptionFormId']/div[1]/div[2]/div/span[2]/span/input").click():
         driver.close()
         main()
 
     else:
         driver.find_element_by_xpath(
-            "//*[@id='shipoption-select']/div/div/div/div/div[2]/div[3]/div/span/span/span/input").click()
+            "//*[@id='shippingOptionFormId']/div[1]/div[2]/div/span[2]/span/input").click()
 
 
 # Fresh market
@@ -132,15 +148,16 @@ def f():
     time1 = random.uniform(0.14, 0.261)
     time2 = random.uniform(0.12, 0.216)
     options = Options()
+    options.add_argument('--no-sandbox')
     options.add_experimental_option("detach", True)
     ua = UserAgent()
     userAgent = ua.random
     print(userAgent)
     options.add_argument(f'user-agent={userAgent}')
-    options.add_argument('--no-sandbox')
+
     driver = webdriver.Chrome(chrome_options=options,
                               executable_path='chromedriver.exe')
-    driver.delete_all_cookies()  # Deletes cookies
+
     driver.get("https://www.amazon.com/ap/signin?_encoding=UTF8&ignoreAuthState=1&openid.assoc_handle=usflex&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2F%3Fref_%3Dnav_custrec_signin&switch_account=")
 
     driver.set_window_size(x, y)
@@ -173,21 +190,19 @@ def f():
     driver.implicitly_wait(1000)
     driver.find_element_by_xpath("//*[@id='a-autoid-0']/span/a").click()
     driver.implicitly_wait(1000)
-    driver.find_element_by_xpath(
-        "//*[@id='changeQuantityFormId']/div[2]/div[2]/div/div/span/span/input").click()
-    driver.implicitly_wait(1000)
-    while not driver.find_element_by_xpath("//*[@id='locationChangeWarningStrings']/div[2]/div/div/span[2]/span/input").click():
+
+    while driver.find_elements_by_xpath("//*[@id='slot-container-UNATTENDED']/div/div"):
         driver.refresh()
-        time.sleep(random.randint(20, 30))
-    time.sleep(5)
+        countdown(random.randint(20, 30))
+
+    else:
+        pass
 
 
 def main():
     '''
     Main Function 
-
     Puts everything together :D
-
     '''
     clear()  # clears cmd
     login()  # Calls login function
@@ -197,7 +212,7 @@ def main():
         time.sleep(3)
         clear()
         print('\n'*5)
-        print(f'  Your email: {email}')
+        print(f'  Your Email: {email}')
         print(f'  Your Password: {password}')
         print('\n'*5)
         wf()
@@ -207,7 +222,7 @@ def main():
         time.sleep(3)
         clear()
         print('\n'*5)
-        print(f'  Your email: {email}')
+        print(f'  Your Email: {email}')
         print(f'  Your Password: {password}')
         print('\n'*5)
         f()
