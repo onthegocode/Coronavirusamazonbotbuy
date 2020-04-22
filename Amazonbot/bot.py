@@ -57,6 +57,8 @@ def wf():
     userAgent = ua.random
     print(userAgent)
     options.add_argument(f'user-agent={userAgent}')
+    options.add_argument('--no-sandbox')
+
     driver = webdriver.Chrome(chrome_options=options,
                               executable_path='chromedriver.exe')
     driver.delete_all_cookies()  # Deletes cookies
@@ -135,6 +137,7 @@ def f():
     userAgent = ua.random
     print(userAgent)
     options.add_argument(f'user-agent={userAgent}')
+    options.add_argument('--no-sandbox')
     driver = webdriver.Chrome(chrome_options=options,
                               executable_path='chromedriver.exe')
     driver.delete_all_cookies()  # Deletes cookies
