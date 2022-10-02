@@ -6,7 +6,6 @@ import os
 import time
 import json
 
-
 def clear(): return os.system('cls')
 
 
@@ -24,7 +23,6 @@ def countdown(seconds):
             print('Refresh Timer: '+str(seconds - i) + " seconds")
             time.sleep(1)
             clear()
-
 
 def login():
     global email
@@ -60,7 +58,6 @@ def login():
         which = input(
             'Do you want Fresh Market or Whole Foods Market Type F for Fresh or W for Whole Foods: ').upper()
         break
-
 
 # whole foods market
 def wf():
@@ -140,7 +137,6 @@ def wf():
         driver.find_element_by_xpath(
             "//*[@id='shippingOptionFormId']/div[1]/div[2]/div/span[2]/span/input").click()
 
-
 # Fresh market
 def f():
     x = random.randint(420, 1980)
@@ -194,10 +190,8 @@ def f():
     while driver.find_elements_by_xpath("//*[@id='slot-container-UNATTENDED']/div/div"):
         driver.refresh()
         countdown(random.randint(20, 30))
-
     else:
         pass
-
 
 def main():
     '''
@@ -230,7 +224,6 @@ def main():
     while which != 'W' or which != 'F':
         clear()
         main()
-
 
 if __name__ == '__main__':
     main()

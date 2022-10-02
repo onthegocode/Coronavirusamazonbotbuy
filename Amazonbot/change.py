@@ -1,9 +1,7 @@
 import json
 import os
 
-
 def clear(): return os.system('cls')
-
 
 def main():
 
@@ -33,7 +31,6 @@ def main():
         print(f'\n\nYour Email is: {email}')
         print(f'\nYour Password is: {password}')
         print('\n\n\n\nAll Done Thank You! :D\n\n')
-
 
 if __name__ == '__main__':
     main()
